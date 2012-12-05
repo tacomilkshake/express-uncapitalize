@@ -7,6 +7,8 @@ This is primarily to ensure that dynamic routes (using dynamic parameters, e.g. 
 
 A 301 redirect is used to ensure that search engines treat the lowercase form of your URLs to be the canonical versions; this is important for SEO.
 
+[View this project on npmjs.org](https://npmjs.org/package/express-uncapitalize)
+
 Installation
 ------------
     
