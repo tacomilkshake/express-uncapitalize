@@ -1,0 +1,21 @@
+{
+  "name": "express-uncapitalize",
+  "version": "0.0.9",
+  "description": "An Express middleware module that will redirect user HTTP requests that contain uppercase letters, to the same URL converted to lowercase.",
+  "main": "express-uncapitalize.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "express",
+    "express-js",
+    "redirect",
+    "capitlization",
+    "lowercase",
+    "uppercase",
+    "middleware"
+  ],
+  "author": "Jamie Steven",
+  "license": "MIT"
+}
