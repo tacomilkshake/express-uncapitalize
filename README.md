@@ -1,7 +1,7 @@
 express-uncapitalize
 ====================
 
-A quite simple Express middleware module that will redirect user HTTP requests that contain uppercase letters, to the same URL converted to lowercase.
+A quite simple Express middleware module that will redirect user HTTP requests that contain uppercase letters, to the same URL in lowercase form.
 
 This is primarily to ensure that dynamic routes (using dynamic parameters, e.g. :username) will be interpreted in their lowercase form. Some would argue that user input should be normalized individually, but I found this to be quicker, simpler overall solution to a bunch of code to normalize URL parameter input.
 
