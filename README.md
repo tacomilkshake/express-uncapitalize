@@ -1,13 +1,34 @@
 express-uncapitalize
 ====================
 
-A quite simple Node.js/Express middleware module that will redirect user HTTP requests that contain uppercase letters, to the same URL in lowercase form.
+A quite simple Node.js/Express middleware module that will redirect user HTTP requests that contain uppercase letters, to the same URL in lowercase form, for parameter normalization and SEO purposes.
 
 This is primarily to ensure that dynamic routes (using dynamic parameters, e.g. :username) will be interpreted in their lowercase form. Some would argue that user input should be normalized individually, but I found this to be a quicker, simpler  solution to writing code that normalizes individual URL parameters.
 
 This is also good for SEO (by ensuring there is single canonical URL for all of your content). A 301 redirect is used to ensure that search engines are redirected to the lowercase, canonical version of your content.
 
 [View this project on npmjs.org](https://npmjs.org/package/express-uncapitalize)
+
+Example
+-------
+
+Say you have a route parameter, :username, in an Express route like so:
+
+    app.get('/user/:username', function(req, res){
+        ...
+    });
+
+Using express-uncapitalize, a user visiting any of the following:
+
+    http://wonderfulnodeapp.org/user/BOB
+    http://wonderfulnodeapp.org/User/bob
+    http://wonderfulnodeapp.org/user/Bob
+    
+will now be 301 redirected to:
+
+    http://wonderfulnodeapp.org/user/bob
+    
+The final destination URL will be the canonical version to web crawlers (like search engines), and your :username param will always be lowercase without the need for additional normalization.
 
 Installation
 ------------
@@ -21,7 +42,7 @@ Simply add the following line as a middleware in your Express app.configure:
 
     app.use(require('express-uncapitalize')());
 
-Placement of this middleware is important; if placed before your static middleware will redirect your requests to your static content as well:
+Where you add this this middleware to your configuration will vary what is interpreted and redirected. If placed before your static middleware, express-uncapitalize will redirect requests to your static content in addition to your routes:
 
     app.configure(function(){
         app.set('views', __dirname + '/views');
@@ -34,7 +55,7 @@ Placement of this middleware is important; if placed before your static middlewa
         app.use(app.router);
     });
     
-I generally prefer to place after the static middleware to only redirect requests managed by the router, i.e. only the content where there is likely to be database lookups where case sensitivity matters:
+I generally prefer to place after the static middleware to only redirect requests managed by the router, i.e. only the content where there is likely to be database lookups and case sensitivity matters:
 
     app.configure(function(){
         app.set('views', __dirname + '/views');
