@@ -14,7 +14,7 @@
     "express",
     "express-js",
     "redirect",
-    "capitlization",
+    "capitalization",
     "lowercase",
     "uppercase",
     "middleware"
