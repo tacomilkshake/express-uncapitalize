@@ -4,8 +4,12 @@
 
 module.exports = function() {
     return function(req, res, next) {
-        if (/[A-Z]/.test(req.url)) {
-            res.redirect(301, req.url.toLowerCase());
+        var url = req._parsedUrl;
+        if (/[A-Z]/.test(url.pathname)) {
+            if (url.search == null) {
+                url.search = '';
+            }
+            res.redirect(301, url.pathname.toLowerCase() + url.search);
         } else {
             next();
         }
