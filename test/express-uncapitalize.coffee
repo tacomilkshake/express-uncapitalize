@@ -5,10 +5,6 @@ express = require 'express'
 supertest = require 'supertest'
 uncapitalize = require '..'
 
-# config
-HOST = 'localhost'
-PORT = 3000
-
 # variables
 server = null
 
