@@ -1,3 +1,5 @@
+# This project is no longer maintained. [Here's an improved replacement](https://github.com/iZettle/express-lowercase-paths)
+
 express-uncapitalize
 ====================
 
