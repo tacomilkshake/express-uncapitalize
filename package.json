@@ -4,7 +4,7 @@
   "description": "An Express middleware module that will redirect user HTTP requests that contain uppercase letters, to the same URL converted to lowercase.",
   "main": "express-uncapitalize.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
       "type": "git",
@@ -20,5 +20,12 @@
     "middleware"
   ],
   "author": "Jamie Steven",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "1.9.x",
+    "expect.js": "0.3.x",
+    "express": "3.2.1",
+    "mocha": "2.3.x",
+    "supertest": "1.1.x"
+  }
 }
